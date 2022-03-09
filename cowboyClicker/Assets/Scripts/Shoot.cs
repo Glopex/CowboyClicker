@@ -5,29 +5,45 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public Transform firepoint;
-    public Transform gun;
-    public GameObject bullet;
+    public GameObject bulletPrefab;
+    private Transform target;
 
-    public float shootForce = 500.0f;
-    Vector2 centerScreen;
+    public float speed = 1.0f;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        
+    }
     void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-        RaycastHit hitPoint;
-
-        if (Physics.Raycast(ray, out hitPoint, 100.0f))
+        for (var i = 0; i < Input.touchCount; ++i)
         {
-            gun.transform.LookAt(hitPoint.point);
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                var ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    transform.LookAt(hit.point);
+                    GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+                    bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+                    
+                    Destroy(bullet.gameObject, 10f);
+                }
+
+            }
         }
+        
     }
 
+    /* Code for a UI_Button
     public void Fire(){
 
-        bullet = Instantiate(bullet, firepoint.position, firepoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
         bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * shootForce);
         Destroy(bullet.gameObject, 3f);
 
     }
+    */
 }

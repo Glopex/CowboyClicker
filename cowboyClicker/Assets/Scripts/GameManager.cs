@@ -12,15 +12,11 @@ public class GameManager : MonoBehaviour
     private int score;
 
     //HeathBar Components
-    public int maxHealth =100;
-    public int health;
-    public HealthBar healthBar;
+    
 
     private void Start()
     {
         UpdateUI();
-        health = maxHealth;
-        healthBar.SetHealth(health);
     }
 
     private void Update()
@@ -39,9 +35,5 @@ public class GameManager : MonoBehaviour
         addScore.Invoke(score.ToString());
     }
 
-    public void EditHealth(int damage)
-    {
-        health -= damage;
-        healthBar.SetHealth(health);
-    }
+    
 }

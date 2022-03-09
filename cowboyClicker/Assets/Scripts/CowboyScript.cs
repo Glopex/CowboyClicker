@@ -11,6 +11,7 @@ public class CowboyScript : MonoBehaviour
     public float minX;
     public float maxY;
     public float minY;
+    public HealthBar healthBar;
 
 
     void OnEnable()
@@ -33,8 +34,7 @@ public class CowboyScript : MonoBehaviour
             
             Destroy(other.gameObject);
             manager.AddScore(10);
-
-            manager.EditHealth(1);
+            healthBar.EditHealth(1);
 
 
             float randomX = Random.Range(minX, maxX);

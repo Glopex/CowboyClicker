@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject bulletPrefab;
+    public GameObject muzzlePrefab;
     private Transform target;
 
     public float speed = 1.0f;
@@ -27,6 +28,7 @@ public class Shoot : MonoBehaviour
                 {
                     transform.LookAt(hit.point);
                     GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+                    Instantiate(muzzlePrefab, firepoint.position, firepoint.rotation);
                     bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
                     
                     Destroy(bullet.gameObject, 10f);

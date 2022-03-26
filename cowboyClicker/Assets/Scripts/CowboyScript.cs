@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CowboyScript : MonoBehaviour
 {
-    public GameManager manager;
+   [SerializeField] public GameObject manager;
     public GameObject effect;
     public Transform scorePos;
     public float maxX;
@@ -12,12 +12,12 @@ public class CowboyScript : MonoBehaviour
     public float maxY;
     public float minY;
     public HealthBar healthBar;
+    private float CPC = 1;
 
-
-    void OnEnable()
-    {
-        manager = GameObject.Find("Manager").GetComponent<GameManager>();
-    }
+    //void OnEnable()
+    //{
+    //    manager = GameObject.Find("Manager").GetComponent<GameManager>();
+    //}
 
     // Update is called once per frame
     void Update()
@@ -33,7 +33,7 @@ public class CowboyScript : MonoBehaviour
             Debug.Log("Hit");
             
             Destroy(other.gameObject);
-            manager.AddScore(10);
+            manager.SendMessage("ClickScore",CPC);
             healthBar.EditHealth(1);
 
 

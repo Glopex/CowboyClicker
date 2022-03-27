@@ -7,7 +7,8 @@ public class ScoreManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float ScorePerSecond;
+    private float ScorePerSecond;
+    public float TrueScorePerSecond;
     public float TotalScore;
     public float LevelDeputy;
     public float LevelHorse;
@@ -31,6 +32,7 @@ public class ScoreManagerScript : MonoBehaviour
 
 
         addScore.Invoke(TotalScore.ToString());
+        TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
     }
     void ClickScore(float CPC)
     {

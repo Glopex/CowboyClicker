@@ -10,39 +10,40 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-    public int maxHealth = 100;
-    public int health = 100;
-    public HealthBar healthBar;
+    public float maxHealth = 100;
+    public float health = 100;
 
     private void Start()
     {
 
         health = maxHealth;
-        healthBar.SetHealth(health);
+        SetHealth(health);
     }
 
     private void Update()
     {
+        slider.maxValue = maxHealth;
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    public void SetMaxHealth(int health)
+    public void SetMaxHealth(float health)
     {
         slider.maxValue = health;
         slider.value = health;
         fill.color = gradient.Evaluate(1f);
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    public void EditHealth(int damage)
+    public void EditHealth(float damage)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
+        damage =  Mathf.RoundToInt(damage);
+        health -= (int)damage;
+        SetHealth(health);
     }
 }

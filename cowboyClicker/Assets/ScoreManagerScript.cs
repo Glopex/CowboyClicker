@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class ScoreManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     private float ScorePerSecond;
     public float TrueScorePerSecond;
@@ -31,7 +30,7 @@ public class ScoreManagerScript : MonoBehaviour
         HorseScore = LevelHorse * 5;
 
 
-        addScore.Invoke(TotalScore.ToString());
+        //addScore.Invoke(TotalScore.ToString());
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
     }
     void ClickScore(float CPC)

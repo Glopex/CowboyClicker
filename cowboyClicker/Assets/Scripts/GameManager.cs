@@ -9,19 +9,21 @@ public class GameManager : MonoBehaviour
 {
     //Score Components
     public UnityEvent<string> addScore;
-    private int score;
+    public int score;
 
-    //HeathBar Components
-    
+
+    //Damage Components
+    public float damage = 1;
 
     private void Start()
     {
         UpdateUI();
     }
 
-    private void Update()
+
+    public void UpdateDamage(float num)
     {
-        
+
     }
 
     public void AddScore(int scoreAmt)

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CowboyScript : MonoBehaviour
 {
-   [SerializeField] public GameObject manager;
+   [SerializeField] public GameManager manager;
     public GameObject effect;
     public Transform scorePos;
     public float maxX;
@@ -12,29 +13,41 @@ public class CowboyScript : MonoBehaviour
     public float maxY;
     public float minY;
     public HealthBar healthBar;
-    private float CPC = 1;
+    public float CPC;
+    public GameObject lvlTxt;
+    public int lvlNum;
 
-    //void OnEnable()
-    //{
-    //    manager = GameObject.Find("Manager").GetComponent<GameManager>();
-    //}
+
+    private void Start()
+    {
+        lvlNum = 1;
+        lvlTxt.GetComponentInChildren<Text>().text = "LVL :" + lvlNum;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        //Destroy(gameObject, 10f);
+        CPC = manager.damage;
+
+        if(healthBar.health<= 0)
+        {
+            healthBar.maxHealth *= 1.15f;
+            healthBar.health = healthBar.maxHealth;
+            lvlNum++;
+        }
+
+        lvlTxt.GetComponentInChildren<Text>().text = "Lvl :" + lvlNum;
     }
 
     void OnTriggerStay(Collider other)
     {
-        // Wooden Target 
+
         if (other.gameObject.tag == "Bullet")
         {
-            Debug.Log("Hit");
             
             Destroy(other.gameObject);
-            manager.SendMessage("ClickScore",CPC);
-            healthBar.EditHealth(1);
+            manager.AddScore((int)CPC);
+            healthBar.EditHealth(CPC);
 
 
             float randomX = Random.Range(minX, maxX);

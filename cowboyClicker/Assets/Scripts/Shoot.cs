@@ -8,15 +8,17 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject muzzlePrefab;
     private Transform target;
+    int mode;
 
     public float speed = 1.0f;
 
     private void Start()
     {
-        
+        mode = 1;
     }
     void Update()
     {
+
         for (var i = 0; i < Input.touchCount; ++i)
         {
             if (Input.GetTouch(i).phase == TouchPhase.Began)
@@ -27,25 +29,27 @@ public class Shoot : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     transform.LookAt(hit.point);
-                    GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-                    Instantiate(muzzlePrefab, firepoint.position, firepoint.rotation);
-                    bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-                    
-                    Destroy(bullet.gameObject, 10f);
+
+                    switch (mode)
+                    {
+                        case 1:  //Revolver Shooting
+                            
+                            GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+                            Instantiate(muzzlePrefab, firepoint.position, firepoint.rotation);
+                            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+
+                            Destroy(bullet.gameObject, 10f);
+                            break;
+                        case 2: // Shotgun Shooting
+                            break;
+                        case 3: // Gatling Gun Shooting
+
+                            break;
+                    }
                 }
 
             }
         }
         
     }
-
-    /* Code for a UI_Button
-    public void Fire(){
-
-        GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * shootForce);
-        Destroy(bullet.gameObject, 3f);
-
-    }
-    */
 }

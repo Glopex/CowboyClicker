@@ -28,7 +28,7 @@ public class DeputyScript : MonoBehaviour
         quanityTxt.GetComponentInChildren<Text>().text = numDeputy.ToString();
     }
 
-    void SpawnDeputy(int num)
+   public void SpawnDeputy(int num)
     {
 
         if (currentPoints >= costDeputy)

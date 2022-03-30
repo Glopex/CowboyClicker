@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CowboyScript : MonoBehaviour
 {
-   [SerializeField] public GameManager manager;
+   [SerializeField] public GameObject manager;
     public GameObject effect;
     public Transform scorePos;
     public float maxX;
@@ -27,7 +27,7 @@ public class CowboyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CPC = manager.damage;
+        
 
         if(healthBar.health<= 0)
         {
@@ -46,7 +46,7 @@ public class CowboyScript : MonoBehaviour
         {
             
             Destroy(other.gameObject);
-            manager.AddScore((int)CPC);
+            manager.SendMessage("ClickScore",CPC);
             healthBar.EditHealth(CPC);
 
 
@@ -55,5 +55,14 @@ public class CowboyScript : MonoBehaviour
             GameObject points = Instantiate(effect, scorePos.position = new Vector3(randomX,randomY,5), scorePos.transform.rotation);
             Destroy(points, 0.5f);
         }
+    }
+    public void increaseBullet1()
+    {
+        print("bought");
+        CPC = 10;
+    }
+    public void increaseBullet2()
+    {
+        CPC = 50;
     }
 }

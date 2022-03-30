@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,7 +208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1659060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: increaseDeputy
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 150
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1659060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,7 +2518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 805764741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: GetShotgun
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &805764741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,7 +2654,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 846952691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: increaseHorse
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 500
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &846952691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3874,6 +3910,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   LevelGun: 1
+  deputy: {fileID: 7436678621195102575, guid: 36765f3c9af23464eb098a570eef1640, type: 3}
+  horse: {fileID: 8021110643937229498, guid: 0148f1e98978b55479e02ec9b56cc894, type: 3}
 --- !u!4 &1521874258
 Transform:
   m_ObjectHideFlags: 0
@@ -3882,7 +3920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521874256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1322584, y: -1.7184502, z: 1.5719082}
+  m_LocalPosition: {x: 0.1322584, y: -2.24, z: 5.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4894,7 +4932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846265557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: GetGatling
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1000
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846265557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,7 +5800,7 @@ PrefabInstance:
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 121061916}
+      objectReference: {fileID: 1521874256}
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: maxValue
       value: 1
@@ -5770,6 +5820,10 @@ PrefabInstance:
     - target: {fileID: 935862750136178957, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: m_Name
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 935862750136178957, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
+      propertyPath: m_TagString
+      value: theboi
       objectReference: {fileID: 0}
     - target: {fileID: 935862750136178961, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: m_RootOrder

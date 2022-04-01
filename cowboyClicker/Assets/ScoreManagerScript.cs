@@ -35,14 +35,33 @@ public class ScoreManagerScript : MonoBehaviour
         DeputyScore = LevelDeputy ;
         HorseScore = LevelHorse * 5;
 
-
-        //addScore.Invoke(TotalScore.ToString());
+        FormatScore(TotalScore); // format score and then display it
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
     }
     void ClickScore(float CPC)
     {
-        
         TotalScore = TotalScore + CPC;
+    }
+
+    void FormatScore(float TotalScore)
+    {
+        string scoreDisplay = TotalScore.ToString();
+
+        if (TotalScore >= 1000000000) // 1 Billion
+        {
+            scoreDisplay = (TotalScore / 1000000000).ToString("F1") + "Bil";
+        }
+        else if (TotalScore >= 1000000) // 1 Million
+        {
+            scoreDisplay = (TotalScore / 1000000).ToString("F1") + "Mil";
+        }
+        else if (TotalScore >= 1000f) // 1 hundred thousands
+        {
+            scoreDisplay = (TotalScore / 1000).ToString("F1") + "K";
+        }
+        else scoreDisplay= TotalScore.ToString("F1");
+
+        addScore.Invoke(scoreDisplay);
     }
 
     public void increaseDeputy(float price)

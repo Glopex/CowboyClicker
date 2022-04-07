@@ -211,14 +211,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1521874257}
         m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
-        m_MethodName: increaseDeputy
-        m_Mode: 4
+        m_MethodName: increaseItem
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 150
-          m_StringArgument: 
+          m_StringArgument: Deputy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1659060
@@ -2657,14 +2657,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1521874257}
         m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
-        m_MethodName: increaseHorse
-        m_Mode: 4
+        m_MethodName: increaseItem
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 500
-          m_StringArgument: 
+          m_StringArgument: Horse
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &846952691
@@ -3890,6 +3890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa02658f33804f4d87478facc889dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEPUTY: {fileID: 11400000, guid: f42e69bd4c7886d45a61d35b5dff9767, type: 2}
+  HORSE: {fileID: 11400000, guid: e43f01cd6dc36f14cb0ee2d1cad1b816, type: 2}
+  newobject: {fileID: 0}
   TrueScorePerSecond: 0
   TotalScore: 0
   LevelDeputy: 0

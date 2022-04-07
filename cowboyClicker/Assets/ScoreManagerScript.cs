@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class ScoreManagerScript : MonoBehaviour
 {
-
+    public ItemCode DEPUTY;
+    public ItemCode HORSE;
+    public ItemCode newobject;
     private float ScorePerSecond;
     public float TrueScorePerSecond;
     public float TotalScore;
@@ -29,12 +31,9 @@ public class ScoreManagerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        ScorePerSecond = (DeputyScore + HorseScore)/100;
+        ScorePerSecond += (DEPUTY.CPS * DEPUTY.TimesBought)/100;
+        ScorePerSecond += (HORSE.CPS * HORSE.TimesBought)/100;
         TotalScore = TotalScore + ScorePerSecond;
-
-        DeputyScore = LevelDeputy ;
-        HorseScore = LevelHorse * 5;
-
         FormatScore(TotalScore); // format score and then display it
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
     }
@@ -64,21 +63,54 @@ public class ScoreManagerScript : MonoBehaviour
         addScore.Invoke(scoreDisplay);
     }
 
-    public void increaseDeputy(float price)
+    public void increaseItem(string NameObject)
     {
 
-        if (TotalScore > price)
-        {
-            TotalScore = TotalScore - price;
-            LevelDeputy++;
-        }
+        //if (TotalScore > price)
+        //{
+        //    TotalScore = TotalScore - price;
+        //    LevelDeputy++;
+        //}
 
-        if(LevelDeputy>0 && Deputy == false)
-        {
-            Instantiate(deputy, new Vector3(gameObject.transform.position.x+1 , gameObject.transform.position.y , gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
-            Deputy = true;
-        }
+        //if(LevelDeputy>0 && Deputy == false)
+        //{
+        //    Instantiate(deputy, new Vector3(gameObject.transform.position.x+1 , gameObject.transform.position.y , gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
+        //    Deputy = true;
+        //}
 
+        switch(NameObject)
+        {
+            case "Deputy":
+                if(DEPUTY.TimesBought == 0 && TotalScore < DEPUTY.FirstCost)
+                {
+                    Instantiate(DEPUTY.Model, new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
+                    DEPUTY.TimesBought++;
+                    DEPUTY.LastCost = DEPUTY.FirstCost;
+                    DEPUTY.CurrentCost = ((DEPUTY.LastCost * 15) / 100) + DEPUTY.LastCost;
+                }
+                else if(TotalScore < DEPUTY.LastCost)
+                {
+                    DEPUTY.TimesBought++;
+                    DEPUTY.CurrentCost = ((DEPUTY.LastCost * 15) / 100) + DEPUTY.LastCost;
+                    DEPUTY.LastCost = DEPUTY.CurrentCost;
+                }
+                break;
+            case "Horse":
+                if (HORSE.TimesBought == 0 && TotalScore < DEPUTY.FirstCost)
+                {
+                    Instantiate(HORSE.Model, new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+                    HORSE.TimesBought++;
+                    HORSE.LastCost = HORSE.FirstCost;
+                    HORSE.CurrentCost = ((HORSE.LastCost * 15) / 100) + HORSE.LastCost;
+                }
+                else if (TotalScore < DEPUTY.LastCost)
+                {
+                    HORSE.TimesBought++;
+                    HORSE.CurrentCost = ((HORSE.LastCost * 15) / 100) + HORSE.LastCost;
+                    HORSE.LastCost = HORSE.CurrentCost;
+                }
+                break;
+        }
     }
 
     public void increaseHorse(float price)

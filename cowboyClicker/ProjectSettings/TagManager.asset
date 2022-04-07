@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - theboi
+  - Weapon
   layers:
   - Default
   - TransparentFX

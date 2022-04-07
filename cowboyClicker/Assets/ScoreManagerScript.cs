@@ -135,6 +135,7 @@ public class ScoreManagerScript : MonoBehaviour
         {
             TotalScore = TotalScore - price;
             GameObject.FindGameObjectWithTag("theboi").SendMessage("increaseBullet1");
+            GameObject.FindGameObjectWithTag("Weapon").SendMessage("BuyShotgun");
             Shotgun = true;
         }
     }
@@ -145,6 +146,7 @@ public class ScoreManagerScript : MonoBehaviour
         {
             TotalScore = TotalScore - price;
             GameObject.FindGameObjectWithTag("theboi").SendMessage("increaseBullet2");
+            GameObject.FindGameObjectWithTag("Weapon").SendMessage("BuyGatling");
             gat = true;
         }
     }

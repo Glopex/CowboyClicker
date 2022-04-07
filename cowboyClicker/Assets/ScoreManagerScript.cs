@@ -25,7 +25,8 @@ public class ScoreManagerScript : MonoBehaviour
     private bool Horse;
     void Start()
     {
-        
+        ScorePerSecond = 0;
+        TrueScorePerSecond = 0;
     }
 
     // Update is called once per frame
@@ -35,6 +36,8 @@ public class ScoreManagerScript : MonoBehaviour
         TotalScore = TotalScore + ScorePerSecond;
         FormatScore(TotalScore); // format score and then display it
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
+        print(DEPUTY.TimesBought);
+        print(TotalScore);
     }
     void ClickScore(float CPC)
     {
@@ -81,31 +84,35 @@ public class ScoreManagerScript : MonoBehaviour
         {
             case "Deputy":
                
-                if(DEPUTY.TimesBought == 0 && TotalScore < DEPUTY.FirstCost)
+                if(DEPUTY.TimesBought == 0 && TotalScore > DEPUTY.FirstCost)
                 {
                     print("cringe");
+                    TotalScore -= DEPUTY.CurrentCost;
                     Instantiate(DEPUTY.Model, new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
                     DEPUTY.TimesBought++;
                     DEPUTY.LastCost = DEPUTY.FirstCost;
                     DEPUTY.CurrentCost = ((DEPUTY.LastCost * 15) / 100) + DEPUTY.LastCost;
                 }
-                else if(TotalScore < DEPUTY.LastCost)
+                else if(TotalScore > DEPUTY.LastCost)
                 {
+                    TotalScore -= DEPUTY.CurrentCost;
                     DEPUTY.TimesBought++;
                     DEPUTY.CurrentCost = ((DEPUTY.LastCost * 15) / 100) + DEPUTY.LastCost;
                     DEPUTY.LastCost = DEPUTY.CurrentCost;
                 }
                 break;
             case "Horse":
-                if (HORSE.TimesBought == 0 && TotalScore < DEPUTY.FirstCost)
+                if (HORSE.TimesBought == 0 && TotalScore > DEPUTY.FirstCost)
                 {
+                    TotalScore -= HORSE.CurrentCost;
                     Instantiate(HORSE.Model, new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
                     HORSE.TimesBought++;
                     HORSE.LastCost = HORSE.FirstCost;
                     HORSE.CurrentCost = ((HORSE.LastCost * 15) / 100) + HORSE.LastCost;
                 }
-                else if (TotalScore < DEPUTY.LastCost)
+                else if (TotalScore > DEPUTY.LastCost)
                 {
+                    TotalScore -= HORSE.CurrentCost;
                     HORSE.TimesBought++;
                     HORSE.CurrentCost = ((HORSE.LastCost * 15) / 100) + HORSE.LastCost;
                     HORSE.LastCost = HORSE.CurrentCost;

@@ -16,5 +16,5 @@ MonoBehaviour:
   FirstCost: 10
   TimesBought: 0
   CurrentCost: 10
-  LastCost: 10
+  LastCost: 0
   CPS: 0.1

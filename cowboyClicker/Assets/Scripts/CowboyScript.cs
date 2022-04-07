@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CowboyScript : MonoBehaviour
 {
@@ -14,14 +15,15 @@ public class CowboyScript : MonoBehaviour
     public float minY;
     public HealthBar healthBar;
     public float CPC;
-    public GameObject lvlTxt;
+    public TextMeshProUGUI lvlTxt;
     public int lvlNum;
 
 
     private void Start()
     {
+        CPC = 1;
         lvlNum = 1;
-        lvlTxt.GetComponentInChildren<Text>().text = "LVL :" + lvlNum;
+        lvlTxt.text = "LVL :" + lvlNum;
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class CowboyScript : MonoBehaviour
             lvlNum++;
         }
 
-        lvlTxt.GetComponentInChildren<Text>().text = "Lvl :" + lvlNum;
+        lvlTxt.text = "Lvl :" + lvlNum;
     }
 
     void OnTriggerStay(Collider other)

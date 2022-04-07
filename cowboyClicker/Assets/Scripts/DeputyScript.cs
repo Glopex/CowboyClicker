@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,8 @@ public class DeputyScript : MonoBehaviour
 {
     [SerializeField] public GameManager manager;
     public GameObject deputyPrefab;
-    public Text costTxt;
-    public Text quanityTxt;
+    public TextMeshProUGUI costTxt;
+    public TextMeshProUGUI quanityTxt;
     public int numDeputy = 0;
     public int costDeputy = 250;
     public int currentPoints;
@@ -16,8 +17,8 @@ public class DeputyScript : MonoBehaviour
 
     private void Start()
     {
-        costTxt.GetComponentInChildren<Text>().text = costDeputy.ToString();
-        quanityTxt.GetComponentInChildren<Text>().text = numDeputy.ToString();
+        costTxt.text = costDeputy.ToString();
+        quanityTxt.text = numDeputy.ToString();
     }
 
 

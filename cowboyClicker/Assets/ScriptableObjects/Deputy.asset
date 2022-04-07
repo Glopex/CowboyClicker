@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deputy
   m_EditorClassIdentifier: 
   Model: {fileID: 7436678621195102575, guid: 36765f3c9af23464eb098a570eef1640, type: 3}
-  FirstCost: 10
+  FirstCost: 0
   TimesBought: 0
-  CurrentCost: 10
+  CurrentCost: 0
   LastCost: 0
-  CPS: 0.1
+  CPS: 0

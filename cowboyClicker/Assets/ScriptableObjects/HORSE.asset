@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HORSE
   m_EditorClassIdentifier: 
   Model: {fileID: 8021110643937229498, guid: 0148f1e98978b55479e02ec9b56cc894, type: 3}
-  FirstCost: 100
-  TimesBought: 1
-  CurrentCost: 100
+  FirstCost: 500
+  TimesBought: 0
+  CurrentCost: 500
   LastCost: 0
-  CPS: 1
+  CPS: 0

@@ -32,7 +32,7 @@ public class ScoreManagerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        ScorePerSecond = ((DEPUTY.CPS * DEPUTY.TimesBought) + (HORSE.CPS + HORSE.TimesBought)) / 100;
+        //ScorePerSecond = ((DEPUTY.CPS * DEPUTY.TimesBought) + (HORSE.CPS + HORSE.TimesBought)) / 100;
         TotalScore = TotalScore + ScorePerSecond;
         FormatScore(TotalScore); // format score and then display it
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
@@ -68,17 +68,6 @@ public class ScoreManagerScript : MonoBehaviour
     public void increaseItem(string NameObject)
     {
 
-        //if (TotalScore > price)
-        //{
-        //    TotalScore = TotalScore - price;
-        //    LevelDeputy++;
-        //}
-
-        //if(LevelDeputy>0 && Deputy == false)
-        //{
-        //    Instantiate(deputy, new Vector3(gameObject.transform.position.x+1 , gameObject.transform.position.y , gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
-        //    Deputy = true;
-        //}
         print(NameObject);
         switch(NameObject)
         {
@@ -86,6 +75,7 @@ public class ScoreManagerScript : MonoBehaviour
                
                 if(DEPUTY.TimesBought == 0 && TotalScore > DEPUTY.FirstCost)
                 {
+                    DEPUTY.CPS = 0.1f;
                     print("cringe");
                     TotalScore -= DEPUTY.CurrentCost;
                     Instantiate(DEPUTY.Model, new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
@@ -104,6 +94,7 @@ public class ScoreManagerScript : MonoBehaviour
             case "Horse":
                 if (HORSE.TimesBought == 0 && TotalScore > DEPUTY.FirstCost)
                 {
+                    HORSE.CPS = 1f;
                     TotalScore -= HORSE.CurrentCost;
                     Instantiate(HORSE.Model, new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
                     HORSE.TimesBought++;

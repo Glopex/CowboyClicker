@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -510,18 +510,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 121061916}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PauseGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!222 &85960764
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -651,18 +639,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 21300000, guid: efee20b64d1e73942a29ba61ce3379c3, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 121061916}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UnPauseGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4313,17 +4289,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716617973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9a62a52317673439ffb948e981083e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bfc7c78b9831fc4fbd4cd90b755d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 121061916}
-  deputyPrefab: {fileID: 0}
-  costTxt: {fileID: 0}
-  quanityTxt: {fileID: 0}
-  numDeputy: 0
-  costDeputy: 250
-  currentPoints: 0
-  spawnPoint: []
+  newobject: {fileID: 0}
+  DEPUTY: {fileID: 11400000, guid: f42e69bd4c7886d45a61d35b5dff9767, type: 2}
+  costDeputyTxt: {fileID: 2074234701}
+  quanityDeputyTxt: {fileID: 207363893}
+  HORSE: {fileID: 11400000, guid: e43f01cd6dc36f14cb0ee2d1cad1b816, type: 2}
+  costHorseTxt: {fileID: 655644291}
+  quanityHorseTxt: {fileID: 2031202898}
 --- !u!4 &1716617975
 Transform:
   m_ObjectHideFlags: 0
@@ -4640,7 +4615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lvl: 1'
+  m_text: 'Lvl: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
   m_sharedMaterial: {fileID: 437986409256438656, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
@@ -4667,7 +4642,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.45
+  m_fontSize: 0.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5774,7 +5749,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: CPC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: maxX
@@ -5799,7 +5774,7 @@ PrefabInstance:
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: lvlTxt
       value: 
-      objectReference: {fileID: 1800140359}
+      objectReference: {fileID: 1800140361}
     - target: {fileID: 1884615378, guid: 9e5a0328f525ca34089ea62ec7681c44, type: 3}
       propertyPath: manager
       value: 

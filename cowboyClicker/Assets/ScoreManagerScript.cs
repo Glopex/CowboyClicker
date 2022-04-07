@@ -31,8 +31,7 @@ public class ScoreManagerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        ScorePerSecond += (DEPUTY.CPS * DEPUTY.TimesBought)/100;
-        ScorePerSecond += (HORSE.CPS * HORSE.TimesBought)/100;
+        ScorePerSecond = ((DEPUTY.CPS * DEPUTY.TimesBought) + (HORSE.CPS + HORSE.TimesBought)) / 100;
         TotalScore = TotalScore + ScorePerSecond;
         FormatScore(TotalScore); // format score and then display it
         TrueScorePerSecond = ScorePerSecond * 100; //this is mostly visual
@@ -77,12 +76,14 @@ public class ScoreManagerScript : MonoBehaviour
         //    Instantiate(deputy, new Vector3(gameObject.transform.position.x+1 , gameObject.transform.position.y , gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
         //    Deputy = true;
         //}
-
+        print(NameObject);
         switch(NameObject)
         {
             case "Deputy":
+               
                 if(DEPUTY.TimesBought == 0 && TotalScore < DEPUTY.FirstCost)
                 {
+                    print("cringe");
                     Instantiate(DEPUTY.Model, new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 0.5f), gameObject.transform.rotation);
                     DEPUTY.TimesBought++;
                     DEPUTY.LastCost = DEPUTY.FirstCost;

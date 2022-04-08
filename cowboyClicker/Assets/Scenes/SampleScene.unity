@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -----
+  m_text: Dreamcatcher
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
   m_sharedMaterial: {fileID: 437986409256438656, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
@@ -1356,7 +1356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 370268025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: increaseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Campfire
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &370268025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4042,7 +4054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEPUTY: {fileID: 11400000, guid: f42e69bd4c7886d45a61d35b5dff9767, type: 2}
   HORSE: {fileID: 11400000, guid: e43f01cd6dc36f14cb0ee2d1cad1b816, type: 2}
-  newobject: {fileID: 0}
+  DREAMCATCHER: {fileID: 11400000, guid: ffe6dc9db1dfdfc41aff1ea925fdbd48, type: 2}
+  CAMPFIRE: {fileID: 11400000, guid: e410be1b6e5b91f42916a2d5ceb6789f, type: 2}
   TrueScorePerSecond: 0
   TotalScore: 0
   LevelDeputy: 0
@@ -4065,6 +4078,10 @@ MonoBehaviour:
   LevelGun: 1
   deputy: {fileID: 7436678621195102575, guid: 36765f3c9af23464eb098a570eef1640, type: 3}
   horse: {fileID: 8021110643937229498, guid: 0148f1e98978b55479e02ec9b56cc894, type: 3}
+  priceDeputy: {fileID: 2074234699}
+  priceHorse: {fileID: 655644289}
+  priceDreamcatcher: {fileID: 2085485601}
+  priceCampfire: {fileID: 651940127}
 --- !u!4 &1521874258
 Transform:
   m_ObjectHideFlags: 0
@@ -4136,7 +4153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -----
+  m_text: Campfire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
   m_sharedMaterial: {fileID: 437986409256438656, guid: 5137ddbaaf5be804487958a12f43208d, type: 2}
@@ -4464,7 +4481,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685067036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521874257}
+        m_TargetAssemblyTypeName: ScoreManagerScript, Assembly-CSharp
+        m_MethodName: increaseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dreamcatcher
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1685067036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4519,7 +4548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1716617974
 MonoBehaviour:
   m_ObjectHideFlags: 0

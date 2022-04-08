@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 {
+    public GameObject PistolWeapon;
+    public GameObject ShotgunWeapon;
+    public GameObject GatlingWeapon;
     public bool Pistol;
     public bool Shotgun;
     public bool gatling;
@@ -18,7 +21,32 @@ public class WeaponChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Pistol == true)
+        {
+            PistolWeapon.SetActive(true);
+        }
+        else
+        {
+            PistolWeapon.SetActive(false);
+        }
         
+        if (Shotgun == true)
+        {
+            ShotgunWeapon.SetActive(true);
+        }
+        else
+        {
+            ShotgunWeapon.SetActive(false);
+        }
+        
+        if (gatling == true)
+        {
+            GatlingWeapon.SetActive(true);
+        }
+        else
+        {
+            GatlingWeapon.SetActive(false);
+        }
     }
 
 
